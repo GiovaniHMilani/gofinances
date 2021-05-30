@@ -12,19 +12,37 @@ import {
 } from "./styles";
 
 interface HighlightCardProps {
-
+  type: "UP" | "DOWN" | "TOTAL";
+  amount: string;
+  lastTransaction: string;
 }
 
-export function HighlightCard({}: HighlightCardProps) {
+const title = {
+  UP: "Entrada",
+  DOWN: "Saídas",
+  TOTAL: "Total",
+};
+
+const icon = {
+  UP: "arrow-up-circle",
+  DOWN: "arrow-down-circle",
+  TOTAL: "dollar-sign",
+};
+
+export function HighlightCard({
+  type,
+  amount,
+  lastTransaction,
+}: HighlightCardProps) {
   return (
-    <Container>
+    <Container type={type}>
       <Header>
-        <Title>Entrada</Title>
-        <Icon name="arrow-up-circle" />
+        <Title type={type}>{title[type]}</Title>
+        <Icon name={icon[type]} type={type} />
       </Header>
       <Footer>
-        <Amount>R$ <Value>17.400</Value>,00</Amount>
-        <LastTransaction>Última entrada dia 13 de abril</LastTransaction>
+        <Amount type={type}>{amount}</Amount>
+        <LastTransaction type={type}>{lastTransaction}</LastTransaction>
       </Footer>
     </Container>
   );
