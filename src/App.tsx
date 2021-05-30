@@ -8,9 +8,10 @@ import {
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
 
-import { Dashboard } from "./screens/Dashboard";
 import theme from "./global/styles/theme";
 import { StatusBar } from "react-native";
+import { Register } from "./screens/Register";
+import { Dashboard } from "./screens/Dashboard";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,7 +27,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" />
-      <Dashboard />
+      <Register />
     </ThemeProvider>
   );
 }
