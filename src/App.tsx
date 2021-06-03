@@ -12,6 +12,7 @@ import theme from "./global/styles/theme";
 import { StatusBar } from "react-native";
 import { Register } from "./screens/Register";
 import { Dashboard } from "./screens/Dashboard";
+import { CategorySelect } from "./screens/CategorySelect";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
